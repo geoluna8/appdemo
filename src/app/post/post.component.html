@@ -1,0 +1,13 @@
+<div class="media" [ngStyle]="{'background-color':'teal'}">
+<div class="media-left">
+    <a href="#">
+    <img class="media-object" src="{{post.imagen}}" alt="{{post.body}}">
+    </a>
+</div>
+<div class="media-body">
+    <h4 class="media-heading">{{post.name}} - {{post.username}} </h4>
+    <p>{{post.body}}</p>
+    <strong>Creado el:</strong> {{post.created_at | date:"fullDate"}}
+    <hr>
+</div>
+</div>

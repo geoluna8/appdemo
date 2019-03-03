@@ -1,0 +1,13 @@
+.perfilI{
+	background: #d24dff;
+}
+.perfilD{
+	background: #66a3ff;
+}
+.etiquetasPerfil{
+	font-weight: bolder;
+}
+
+.auto-width{
+    transition:max-width 1s, flex 1s;
+}

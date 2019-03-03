@@ -1,0 +1,313 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<app-navbar></app-navbar>
+<div class="container" style="text-align:center">
+  <h1>
+    Bienvenido a {{ title }}!
+  </h1>
+  <h2>
+    {{ subtitle }}
+  </h2>
+  <h3>
+    <a href="{{enlace}}" target="_blank">Sigueme en mi sitio web!!!</a>
+  </h3>
+  <img class="img-fluid" width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+  <div class="row">Linea 1</div>
+  <div class="row">Linea 2</div>
+  <div class="row">Linea 3</div>
+</div>
+<div class="row">
+  <div class="col-md-6 perfilI">
+    <div class="row">
+      <img class="mx-auto" src="{{avatar}}">
+    </div>
+  </div>
+  <div class="col-md-6 perfilD">
+    <div class="row"><span class="etiquetasPerfil">Nombre:&nbsp;</span><span>{{user.Nombre}}</span></div>
+    <div class="row"><span class="etiquetasPerfil">Apellidos:&nbsp;</span><span>{{user.ApellidoPaterno}} {{user.ApellidoMaterno}}</span></div>
+    <div class="row"><span class="etiquetasPerfil">Lugar de nacimiento:&nbsp;</span><span>{{user.Ciudad}} {{user.Estado}}</span></div>
+    <div class="row"><span class="etiquetasPerfil">Ultima sesión:&nbsp;</span><span>{{user.last_signin | date:'medium'}}</span></div>
+    <div class="row"><button class="btn btn-success" (click)="miFuncion(user)">Enviar datos</button></div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row"><h1>{{fecha | date:'dd/MMMM/yyyy'}}</h1></div>
+  <div class="row"><h1>{{fecha | date:'medium'}}</h1></div>
+  <div class="row"><h1>{{texto | lowercase}}</h1></div>
+  <div class="row"><h1>{{pi | number:'2.2-4'}}</h1></div>
+  <div class="row"><h1>{{a | percent:'2.2-4'}}</h1></div>
+  <div class="row"><h1>{{b | currency:'USD':true:'3.2-2'}}</h1></div>
+
+    <p>{{clientes | json}}</p>
+    <p>{{clientes[1] | json }}</p> 
+
+  <div *ngIf="mostrar_mensaje" class="jumbotron"> 
+    <h2>ngIf Funcionando</h2>
+  </div>
+
+  <div class="jumbotron">
+    <div class="row">
+      <div  *ngIf="n1==n2" class="col-md-3">
+        <h3>{{n1}} y {{n2}} son iguales</h3>
+      </div>
+
+      <div  *ngIf="n1<n4" class="col-md-3">
+        <h3>{{n1}} es menor que {{n4}}</h3>
+      </div>
+
+      <div *ngIf="n1!=n4" class="col-md-3">
+        <h3>{{n1}} y {{n4}} Son diferentes </h3>
+      </div>
+
+      <div *ngIf="!Negar" class="col-md-3">
+        <h3>Negado</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="jumbotron">
+    <div *ngIf="comparar()" class="col-md-3">
+      {{n1}} mayor a {{n3}}
+    </div>
+  </div>
+
+  <div *ngIf="productos.length == 0" class="jumbotron">
+    <div class="col-md-3">
+      No hay productos
+    </div>
+  </div>
+
+  <div *ngIf="productos.length > 0" class="jumbotron">
+    <div class="col-md-3">
+      Los productos son: {{productos}}
+    </div>
+  </div>
+
+  <ul class="nav nav-tabs">
+    <li class="nav-item"><a class="nav-link" (click)="opcion=1">1</a></li>
+    <li class="nav-item"><a class="nav-link" (click)="opcion=2">2</a></li>
+    <li class="nav-item"><a class="nav-link" (click)="opcion=3">3</a></li>
+    <li class="nav-item"><a class="nav-link" (click)="opcion=4">4</a></li>
+    <li class="nav-item"><a class="nav-link" (click)="opcion=5">DEFAULT</a></li>
+  </ul>
+
+  <div [ngSwitch]="opcion" class="jumbotron">
+    <div *ngSwitchCase="1">OPCION 1</div>
+    <div *ngSwitchCase="2">OPCION 2</div>
+    <div *ngSwitchCase="3">OPCION 3</div>
+    <div *ngSwitchCase="4">OPCION 4</div>
+    <div *ngSwitchDefault>OPCION POR DEFAULT</div>
+  </div>
+</div>
+
+<div class="container">
+  <h1>Listas</h1>
+  <div class="row">
+    <div class="col-md-4 col-sm-4 col-xs-12">
+      <ul *ngFor="let item of numeros; let i = index">
+        <li><strong>{{i+1}}</strong> - {{item}}</li>
+      </ul>
+    </div>
+    <div class="col-md-4 col-sm-4 col-xs-12">
+      <ul *ngFor="let nombre of cadenas; let x = index;">
+        <li><strong>{{x+1}}</strong> - {{nombre}}</li>
+      </ul>
+    </div>
+    <div class="col-md-4 col-sm-4 col-xs-12">
+      <ul *ngFor="let distinto of distintos; let y = index">
+        <li><strong>{{y+1}}</strong> - {{distinto}}</li>
+      </ul>      
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <h2>Ngif Anidado</h2>
+  <div class="col-md-12" *ngIf="distintos.length>0; else noHayDistintos">
+          <ul *ngFor="let distinto of distintos; let y = index">
+          <li><strong>{{y+1}}</strong> - {{distinto}}</li>
+        </ul>  
+  </div>
+  <ng-template #noHayDistintos>
+    <h2>No hay distintos</h2>
+  </ng-template>
+</div>
+
+<ul>
+  <li *ngFor="let puntaje of puntajes; let q = index">
+    {{q+1}} - {{puntaje}}
+    <p *ngIf="puntaje > 10000" class="alert alert-success">Felicidades tu puntaje es mayor a 10,000 pts!!!</p>
+    <p *ngIf="puntaje < 10000" class="alert alert-danger">Puntaje no superado u_u</p>
+  </li>
+</ul>
+
+<ul class="nav nav-tabs">
+  <li class="nav-item"><a class="nav-link" (click)="opcion2=1">Familia</a></li>
+  <li class="nav-item"><a class="nav-link" (click)="opcion2=2">Amigos</a></li>
+</ul>
+<div class="row" [ngSwitch]="opcion2">
+  <div class="col-md-6" *ngSwitchCase="1">
+  <ul>
+    <li *ngFor="let _familia of familia; let f = index">
+      {{f+1}} - {{_familia}}
+    </li>
+  </ul>
+  </div>
+  <div class="col-md-6" *ngSwitchCase="2">
+  <ul>
+    <li *ngFor="let _amigos of amigos; let g = index">
+      {{g+1}} - {{_amigos}}
+    </li>
+  </ul>
+  </div>
+</div>
+
+
+<div class="contanier">
+  <h1>Clientela</h1>
+  <form action="">
+    <div class="form-group">
+      <label for="">Busqueda</label>
+      <input name="term" type="text" class="form-control" [(ngModel)]="term" placeholder="Busqueda">
+      Buscando coincidencias con: {{ term }}
+    </div>
+  </form>
+  <table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th><i class="fa fa-user"></i> Avatar</th>
+        <th><i class="fa fa-user"></i> Nombre</th>
+        <th><i class="fa fa-user"></i> Apellido</th>
+        <th><i class="fa fa-phone"></i> Telefono</th>
+        <th><i class="fa fa-map-marker"></i> Ciudad</th>
+        <th><i class="fa fa-home"></i> Codigo Postal</th>
+        <th><i class="fa fa-shopping-cart"></i> Compras</th>
+        <th><i class="fa fa-cog"></i> Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let client of clientela | filter:term">
+        <td><img class="border border-primary" [src]="client.avatar" style="width:50px; height:50px;" alt="{{client.nombre}}"></td>
+        <td>{{client.nombre}}</td>
+        <td>{{client.apellido}}</td>
+        <td>{{client.telefono}}</td>
+        <td>{{client.ciudad}}</td>
+        <td>{{client.cp}}</td>
+        <td>
+          <div *ngIf="client.compras; else noCompras">
+            <ul>
+              <li *ngFor="let compras of client.compras">
+                {{compras}}
+              </li>
+            </ul>
+          </div>
+          <ng-template #noCompras>No hay compras</ng-template>
+        </td>
+        <td>
+          <button class="btn btn-info" data-toggle="modal" data-target="#exampleModalCenter" (click)="info(client)">Detalles</button>
+          <button class="btn btn-danger" (click)="eliminar(client)">Eliminar</button>        
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Datos de {{clienteDato.nombre}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-3"><img class="border border-primary" [src]="clienteDato.avatar" style="width:100px; height:100px;" alt="{{clienteDato.nombre}}"></div>
+          <div class="col-md-9">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
+              </div>
+              <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1" [(ngModel)]="clienteDato.nombre">
+            </div> 
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon2"><i class="fa fa-user"></i></span>
+              </div>
+              <input type="text" class="form-control" placeholder="Apellido" aria-label="Apellido" aria-describedby="basic-addon1" [(ngModel)]="clienteDato.apellido">
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon3"><i class="fa fa-phone"></i></span>
+              </div>
+              <input type="text" class="form-control" placeholder="Telefono" aria-label="Telefono" aria-describedby="basic-addon1" [(ngModel)]="clienteDato.telefono">
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon4"><i class="fa fa-map-marker"></i></span>
+              </div>
+              <input type="text" class="form-control" placeholder="Ciudad" aria-label="Ciudad" aria-describedby="basic-addon1" [(ngModel)]="clienteDato.ciudad">
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon5"><i class="fa fa-home"></i></span>
+              </div>
+              <input type="text" class="form-control" placeholder="Codigo Postal" aria-label="Codigo Postal" aria-describedby="basic-addon1" [(ngModel)]="clienteDato.cp">
+            </div>
+            Historial de compras
+            <div *ngIf="clienteDato.compras; else noComprasModal">
+              <ul>
+                <li *ngFor="let compras of clienteDato.compras">
+                  {{compras}}
+                </li>
+              </ul>
+            </div>
+            <ng-template #noComprasModal>No hay compras</ng-template>
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success" (click)="guardarDatos()" data-dismiss="modal">Guardar</button>
+        {{clienteDato | json}}
+      </div>
+    </div>
+  </div>
+</div>
+
+{{letras | sort:'ASC'}}
+
+
+<div class="row" [ngStyle]="{'background-color':colorFondo}">
+  <div class="col-md-12">
+    <p [ngStyle]="{'font-size':fuenteGrande, 'text-align':'center'}">El blog de Geovanny</p>
+    <button class="btn"
+      [class.btn-success]="esta_suscrito"
+      [class.btn-danger]="!esta_suscrito"
+      (click)="suscribir()">{{mensajebtn}}</button>
+  </div>
+</div>
+<div class="row" [ngStyle]="{'background-color':'gray'}">
+   <div class="col-md-12">
+      <h1 class="text-center">Galeria</h1>
+      <button class="btn btn-info" (click)="asignarColumnas()">{{mensajebtn2}}</button>
+      <div class="container">
+        <div class="row">
+          <div *ngFor="let imagen of imagenes" [ngClass]="columnas">
+            <a href="" class="thumbnail">
+              <img [ngClass]="clases_imagenes" src="{{imagen.imagen}}" alt="{{imagen.descripcion}}">
+            </a>
+          </div>
+        </div>
+      </div>     
+   </div> 
+</div>
+
+<app-avatar [datos]="usuario"></app-avatar>
+<app-feed [publicaciones]="posts"></app-feed>
+
+<router-outlet></router-outlet>
